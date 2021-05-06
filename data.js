@@ -292,14 +292,26 @@ const people = [
 
 
 function getPeople(array) {
-	for(let person in people) { 
-        let newRow = document.createElement("TR");
-        let newdata = document.createElement('TD');
-        let addId = document.createTextNode(people[person].id);
-		let addFName = document.createTextNode(people[person].firstName);
-		document.getElementById('table-body').appendChild(newRow).appendChild(newdata).appendChild(addId);
+	let table = document.getElementById('table-body');
+
+	for(let i = 0; i < people.length; i++) { 
+        let current = array[i];
+		let row = document.createElement('tr');
+		let characteristics =  ["id", "firstName", "lastName", "gender", "dob", "height", "weight", "eyeColor", "occupation", "parents", "currentSpouse"
+		];
+
+		for (j = 0; j < characteristics.length; j++){
+			let cell = document.createElement('td');
+			cell.setAttribute('id', characteristics[j]);
+			let attribute = characteristics[j]
+			cell.innerHTML = array[i][attribute];
+			row.appendChild(cell);
+		}
+		table.appendChild(row);
 	}
+	
 }
+
 
 getPeople(people);
 
