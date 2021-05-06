@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
   <body>
+    <input type="button" onclick="getPeople(people)" value="show people">
     <form id="nameForm">
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" name="fname" value="Joy"><br>
@@ -16,28 +17,29 @@
         <input type="button" onclick="searchByName()" value="Submit">
     </form> 
     <div id="tableContainer">
-
-
       <table id="table-main">
-        <tbody id="table-body">
-            <tr>
-              <th>ID</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Gender</th>
-              <th>D.O.B.</th>
-              <th>Height</th>
-              <th>Weight</th>
-              <th>Eye Color</th>
-              <th>Occupation</th>
-              <th>Parents</th>c 
-              <th>Current Spouse</th>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>D.O.B.</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>Eye Color</th>
+            <th>Occupation</th>
+            <th>Parents</th> 
+            <th>Current Spouse</th>
             </tr>
+          </thead>  
+        <tbody id="table-body">
+            
         </tbody>
       </table>
 
     </div>
     <script src="data.js"></script>
-    <script src="add.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>

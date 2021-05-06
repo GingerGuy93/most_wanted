@@ -294,7 +294,7 @@ const people = [
 function getPeople(array) {
 	let table = document.getElementById('table-body');
 
-	for(let i = 0; i < people.length; i++) { 
+	for(let i = 0; i < array.length; i++) { 
         let current = array[i];
 		let row = document.createElement('tr');
 		let characteristics =  ["id", "firstName", "lastName", "gender", "dob", "height", "weight", "eyeColor", "occupation", "parents", "currentSpouse"
@@ -302,18 +302,17 @@ function getPeople(array) {
 
 		for (j = 0; j < characteristics.length; j++){
 			let cell = document.createElement('td');
-			cell.setAttribute('id', characteristics[j]);
+			cell.setAttribute('id', 'rows');
 			let attribute = characteristics[j]
 			cell.innerHTML = array[i][attribute];
 			row.appendChild(cell);
 		}
 		table.appendChild(row);
 	}
-	
+	console.log(array);
 }
 
 
-getPeople(people);
 
 
 console.log(people.length);
