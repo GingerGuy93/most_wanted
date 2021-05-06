@@ -1,4 +1,6 @@
-// You may modify this for testing purposes.
+
+
+
 const people = [
 	{
 		"id": 272822514,
@@ -287,3 +289,19 @@ const people = [
 		"currentSpouse": null
 	}
 ];
+
+
+function getPeople(array) {
+	for(let person in people) { 
+        let newRow = document.createElement("TR");
+        let newdata = document.createElement('TD');
+        let addId = document.createTextNode(people[person].id);
+		let addFName = document.createTextNode(people[person].firstName);
+		document.getElementById('table-body').appendChild(newRow).appendChild(newdata).appendChild(addId);
+	}
+}
+
+getPeople(people);
+
+
+console.log(people.length);

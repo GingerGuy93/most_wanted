@@ -1,0 +1,11 @@
+tbody {
+    border: black 2px solid;
+}
+
+
+tr {
+    border-color: black;
+    border: 2px;
+ border-style: solid;
+
+}
