@@ -9,17 +9,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
   <body>
-    <input type="button" onclick="getPeople(people)" value="show people">
     <div>
+      <h3>Click below to see everyone in the database</h3>
+    <input type="button" onclick="getPeople(people)" value="show people">
+    </div>
+    <div>
+      <h3>Click below to clear search parameters</h3>
       <input type="button" onclick='clearSearch()' value="ClearSearch">
     </div>
-    <form id="nameForm">
-        <label for="fname">First name:</label><br>
-        <input type="text" id="fname" name="fname" value="Joy"><br>
-        <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="lname" value="Madden"><br><br>
-        <input type="button" onclick="searchByName()" value="Submit">
-    </form> 
+    <div>
+      <h3>Select a single or multiple options below to find the person you need.</h3>
+    </div>
     <div> 
       <form id="genderButton">
         <input type="radio" id="male" name="gender" value="male">
@@ -68,7 +68,17 @@
         <button class="dropdown-item" type="button">69-72</button>
         <button class="dropdown-item" type="button">73-76</button>
       </div>
+      <div>
+        <form id="nameForm">
+          <label for="fname">First name:</label><br>
+          <input type="text" id="fname" name="fname" value="Joy"><br>
+          <label for="lname">Last name:</label><br>
+          <input type="text" id="lname" name="lname" value="Madden"><br><br>
+          <input type="button" onclick="searchByName()" value="Submit">
+        </form> 
+      </div>
     </div>
+
     <div id="tableContainer">
       <table id="table-main">
         <thead>
