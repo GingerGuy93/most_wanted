@@ -20,7 +20,7 @@ function updateTable(array) {
         getPeople(array); 
         sortedPeople = array  
     }else{
-        console.log('Sorry, looks like there is no one with that description.');
+       alert('Sorry, looks like there is no one with that description.');
     }
 }
 
@@ -35,7 +35,7 @@ function getProfession (selectedPro) {
 }
 
 function getHeight (selectedHeight) {
-    let height = selectedHeight;
+    let height = selectedHeighargumarrentst;
     searchByHeight(height);
 }
 
@@ -73,7 +73,7 @@ function searchByGender(gender) {
             return false;
         });  
     } else {
-    filteredPeople = sortedPeople.filter(function (person) {
+        filteredPeople = sortedPeople.filter(function (person) {
         if(person.gender === gender){
             return true;
         }
@@ -85,16 +85,32 @@ function searchByGender(gender) {
 }
 
 
-function searchByHeight(height){
-    clearTable();
-    let filteredPeople = people.filter(function (person) {
-        if(person.height === height){
+function getHeight (minHeight, maxHeight) {
+    let minCompare = minHeight;
+    let maxCompare = maxHeight;
+    searchByHeight(minCompare, maxCompare);
+}
+
+function searchByHeight(min, max){
+    clearTable()
+    let filteredPeople = [];
+    if(sortedPeople.length === 0){
+    filteredPeople = people.filter(function (person) {
+        if(person.height >= min && person.height <= max){
             return true;
         }
         return false;
+    });
+    } else { 
+        filteredPeople = sortedPeople.filter(function (person) {
+            if(person.height >= min && person.height <= max){
+                return true;
+            }
+            return false;
+            });
     }
-    )};
-
+    updateTable(filteredPeople);
+}
 
 function searchByColor(color){
     clearTable();
@@ -141,5 +157,16 @@ function searchByName(){
         return false;
         });
     }
+    updateTable(filteredPeople);
+}
+
+function getDesendents () {
+    let id = sortedPeople[0].id
+    let filteredPeople = people.filter(function (person) {
+        if(person.parents[0] === id || person.parents[1] === id){
+            return true;
+        }
+        return false;
+    });
     updateTable(filteredPeople);
 }
