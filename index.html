@@ -10,6 +10,9 @@
 </head>
   <body>
     <input type="button" onclick="getPeople(people)" value="show people">
+    <div>
+      <input type="button" onclick='clearSearch()' value="ClearSearch">
+    </div>
     <form id="nameForm">
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" name="fname" value="Joy"><br>
@@ -46,12 +49,12 @@
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
         <button class="dropdown-item" onclick="getProfession('programmer')" type="button">Programmer</button>
         <button class="dropdown-item" onclick="getProfession('assistant')" type="button">Assistant</button>
-        <button class="dropdown-item" onclick="getProfession('Landscaper')" type="button">Landscaper</button>
-        <button class="dropdown-item" onclick="getProfession('Nurse')" type="button">Nurse</button>
-        <button class="dropdown-item" onclick="getProfession('Student')" type="button">Student</button>
-        <button class="dropdown-item" onclick="getProfession('Architect')" type="button">Architect</button>
-        <button class="dropdown-item" onclick="getProfession('Doctor')" type="button">Doctor</button>
-        <button class="dropdown-item" onclick="getProfession('Politician')" type="button">Politician</button>
+        <button class="dropdown-item" onclick="getProfession('landscaper')" type="button">Landscaper</button>
+        <button class="dropdown-item" onclick="getProfession('nurse')" type="button">Nurse</button>
+        <button class="dropdown-item" onclick="getProfession('student')" type="button">Student</button>
+        <button class="dropdown-item" onclick="getProfession('architect')" type="button">Architect</button>
+        <button class="dropdown-item" onclick="getProfession('doctor')" type="button">Doctor</button>
+        <button class="dropdown-item" onclick="getProfession('politician')" type="button">Politician</button>
       </div>
     </div>
     <div class="dropdown">

@@ -4,6 +4,19 @@ let sortedPeople = [];
 function clearTable() { 
     document.getElementById('table-body').innerHTML= "";
 }
+function clearSearch() { 
+    sortedPeople = []
+    document.getElementById('table-body').innerHTML= "";
+}
+
+function updateTable(array) { 
+    if(array.length > 0){
+        getPeople(array); 
+        sortedPeople = array  
+    }else{
+        console.log('Sorry, looks like there is no one with that description.');
+    }
+}
 
 function getColor (selectedcolor) {
     let color = selectedcolor;
@@ -17,20 +30,24 @@ function getProfession (selectedPro) {
 
 function searchByProfession(profession) { 
     clearTable()
-    let filteredPeople = sortedPeople.filter(function (person) {
+    let filteredPeople = []
+    if(sortedPeople.length === 0) {
+        filteredPeople = people.filter(function (person) {
+            if(person.occupation === profession){
+                return true;
+            }
+            return false;
+        });  
+    } else {
+    filteredPeople = sortedPeople.filter(function (person) {
         if(person.occupation === profession){
             return true;
         }
         return false;
-    });
-    
-    // Rather than console logging, you need to append the filteredPeople to a table.
-    if(filteredPeople.length > 0){
-        getPeople(filteredPeople); 
-        sortedPeople = filteredPeople  
-    }else{
-        console.log('Sorry, looks like there is no one with that name.');
+        });
     }
+    
+    updateTable(filteredPeople)
 }
 function getHeight (selectedHeight) {
     let height = selectedHeight
@@ -50,21 +67,23 @@ function searchByHeight(height){
 
 function searchByColor(color){
     clearTable()
-    let filteredPeople = people.filter(function (person) {
+    let filteredPeople = []
+    if(sortedPeople.length === 0) {
+        filteredPeople = people.filter(function (person) {
+            if(person.eyeColor === color){
+                return true;
+            }
+            return false;
+        });  
+    } else {
+    filteredPeople = sortedPeople.filter(function (person) {
         if(person.eyeColor === color){
             return true;
         }
         return false;
-    });
-    
-    // Rather than console logging, you need to append the filteredPeople to a table.
-    if(filteredPeople.length > 0){
-        getPeople(filteredPeople);
-        sortedPeople = filteredPeople;
-        console.log(sortedPeople);   
-    }else{
-        console.log('Sorry, looks like there is no one with that name.');
+        });
     }
+    updateTable(filteredPeople)
 }
 
 
@@ -75,17 +94,21 @@ function searchByName(){
     let lastNameInput = document.forms['nameForm']['lname'].value;
 
     // "people" is coming from the data.js file. We have access to it within this JavaScript file.
-    let filteredPeople = people.filter(function (person) {
+    let filteredPeople = []
+    if(sortedPeople.length === 0) {
+        filteredPeople = people.filter(function (person) {
+            if(person.firstName === firstNameInput && person.lastName === lastNameInput){
+                return true;
+            }
+            return false;
+        });  
+    } else {
+    filteredPeople = sortedPeople.filter(function (person) {
         if(person.firstName === firstNameInput && person.lastName === lastNameInput){
             return true;
         }
         return false;
-    });
-    
-    // Rather than console logging, you need to append the filteredPeople to a table.
-    if(filteredPeople.length > 0){
-        getPeople(filteredPeople);
-    }else{
-        console.log('Sorry, looks like there is no one with that name.');
+        });
     }
+    updateTable(filteredPeople)
 }
