@@ -9,6 +9,12 @@ function clearSearch() {
     document.getElementById('table-body').innerHTML= "";
 }
 
+function getGender(){
+    let gender = document.forms['genderButton']['gender'].value;
+    clearSearch();
+    searchByGender(gender);
+}
+
 function updateTable(array) { 
     if(array.length > 0){
         getPeople(array); 
@@ -20,17 +26,23 @@ function updateTable(array) {
 
 function getColor (selectedcolor) {
     let color = selectedcolor;
-    searchByColor(color)
+    searchByColor(color);
 }
 
 function getProfession (selectedPro) {
     let profession = selectedPro;
-    searchByProfession(profession)
+    searchByProfession(profession);
 }
 
+function getHeight (selectedHeight) {
+    let height = selectedHeight;
+    searchByHeight(height);
+}
+
+
 function searchByProfession(profession) { 
-    clearTable()
-    let filteredPeople = []
+    clearTable();
+    let filteredPeople = [];
     if(sortedPeople.length === 0) {
         filteredPeople = people.filter(function (person) {
             if(person.occupation === profession){
@@ -47,15 +59,34 @@ function searchByProfession(profession) {
         });
     }
     
-    updateTable(filteredPeople)
-}
-function getHeight (selectedHeight) {
-    let height = selectedHeight
-    searchByHeight(height)
+    updateTable(filteredPeople);
 }
 
+function searchByGender(gender) { 
+    clearTable();
+    let filteredPeople = [];
+    if(sortedPeople.length === 0) {
+        filteredPeople = people.filter(function (person) {
+            if(person.gender === gender){
+                return true;
+            }
+            return false;
+        });  
+    } else {
+    filteredPeople = sortedPeople.filter(function (person) {
+        if(person.gender === gender){
+            return true;
+        }
+        return false;
+        });
+    }
+    
+    updateTable(filteredPeople)
+}
+
+
 function searchByHeight(height){
-    clearTable()
+    clearTable();
     let filteredPeople = people.filter(function (person) {
         if(person.height === height){
             return true;
@@ -66,8 +97,8 @@ function searchByHeight(height){
 
 
 function searchByColor(color){
-    clearTable()
-    let filteredPeople = []
+    clearTable();
+    let filteredPeople = [];
     if(sortedPeople.length === 0) {
         filteredPeople = people.filter(function (person) {
             if(person.eyeColor === color){
@@ -88,7 +119,7 @@ function searchByColor(color){
 
 
 function searchByName(){
-    clearTable()
+    clearTable();
     // Grabbing the values from our nameForm form and inputs.
     let firstNameInput = document.forms['nameForm']['fname'].value;
     let lastNameInput = document.forms['nameForm']['lname'].value;
@@ -110,5 +141,5 @@ function searchByName(){
         return false;
         });
     }
-    updateTable(filteredPeople)
+    updateTable(filteredPeople);
 }
