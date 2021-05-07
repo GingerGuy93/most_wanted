@@ -32,7 +32,20 @@ function searchByProfession(profession) {
         console.log('Sorry, looks like there is no one with that name.');
     }
 }
+function getHeight (selectedHeight) {
+    let height = selectedHeight
+    searchByHeight(height)
+}
 
+function searchByHeight(height){
+    clearTable()
+    let filteredPeople = people.filter(function (person) {
+        if(person.height === height){
+            return true;
+        }
+        return false;
+    }
+    )};
 
 
 function searchByColor(color){
