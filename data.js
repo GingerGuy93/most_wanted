@@ -295,9 +295,8 @@ function getPeople(array) {
 	let table = document.getElementById('table-body');
 
 	for(let i = 0; i < array.length; i++) { 
-        let current = array[i];
 		let row = document.createElement('tr');
-		let characteristics =  ["id", "firstName", "lastName", "gender", "dob", "height", "weight", "eyeColor", "occupation", "parents", "currentSpouse"
+		let characteristics =  ["id", "firstName", "lastName", "gender", "dob", "height", "weight", "eyeColor", "occupation", "parents", "currentSpouse","relation"
 		];
 
 		for (j = 0; j < characteristics.length; j++){

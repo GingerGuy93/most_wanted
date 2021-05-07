@@ -161,11 +161,39 @@ function searchByName(){
 }
 
 function getDesendents () {
-    let id = sortedPeople[0].id
+    let id = sortedPeople[0].id;
     let filteredPeople = people.filter(function (person) {
         if(person.parents[0] === id || person.parents[1] === id){
             return true;
         }
+        return false;
+    });
+    updateTable(filteredPeople);
+}
+
+
+function getFamily () {
+    clearTable()
+    let id = sortedPeople[0].id;
+    let lName = sortedPeople[0].lastName
+    console.log(lName);
+    let filteredPeople = people.filter(function (person) {
+        if(person.lastName === lName){
+            if(person.parents[0] === id || person.parents[1] === id){
+                person.relation = 'child';
+            }
+            else if (person.id === sortedPeople[0].currentSpouse ){
+                person.relation = 'spouse';
+            }
+            else if (person.parents.length == 0 && person.id !== sortedPeople[0].currentSpouse){
+                person.relation = 'parent';
+            } else {
+                person.relation = 'in-law';
+            }
+            
+            return true;
+        }
+    
         return false;
     });
     updateTable(filteredPeople);
