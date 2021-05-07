@@ -5,6 +5,17 @@ function clearTable() {
     document.getElementById('table-body').innerHTML= "";
 }
 
+function getColor () {
+    let color = document.getElementById("brown-eye").value
+    return color
+}
+function searchSingle(){
+    let eyeColor = document.getElementById()['fname'].value;
+
+}
+
+
+
 
 function searchByName(){
     clearTable()
