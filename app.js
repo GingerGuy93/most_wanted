@@ -49,21 +49,24 @@ function searchByProfession(profession) {
     
     updateTable(filteredPeople)
 }
-function getHeight (selectedHeight) {
-    let height = selectedHeight
-    searchByHeight(height)
+function getHeight (minHeight, maxHeight) {
+    let minCompare = minHeight;
+    let maxCompare = maxHeight;
+    searchByHeight(minCompare, maxCompare);
 }
 
-function searchByHeight(height){
+function searchByHeight(min, max){
     clearTable()
     let filteredPeople = people.filter(function (person) {
-        if(person.height === height){
+        if(person.height >= min && person.height <= max){
             return true;
         }
         return false;
-    }
-    )};
-
+    
+    
+    });
+    updateTable(filteredPeople);
+}
 
 function searchByColor(color){
     clearTable()
