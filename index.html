@@ -28,6 +28,7 @@
         <label for="female">Female</label><br>
       </form>
     </div>
+
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Eye Color
@@ -57,6 +58,7 @@
         <button class="dropdown-item" onclick="getProfession('politician')" type="button">Politician</button>
       </div>
     </div>
+
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Height
@@ -68,7 +70,9 @@
         <button class="dropdown-item" onclick="getHeight(70, 73)" type="button">70-73</button>
         <button class="dropdown-item" onclick="getHeight(74, 76)" type="button">74-76</button>
       </div>
-      <div>
+      </div>
+
+    <div>
         <form id="nameForm">
           <label for="fname">First name:</label><br>
           <input type="text" id="fname" name="fname" value="Joy"><br>
@@ -78,7 +82,7 @@
         </form> 
       </div>
       <div>
-        <input type="button"  onclick="getDesendents()" value="Get Desendences">
+        <input type="button"  onclick="getDesendents(0)" value="Get Desendences">
       </div>
       <div>
         <input type="button"  onclick="getFamily()" value="Get Family">

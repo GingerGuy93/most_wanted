@@ -160,16 +160,21 @@ function searchByName(){
     updateTable(filteredPeople);
 }
 
-function getDesendents () {
+function getDesendents (num) {
     let id = sortedPeople[0].id;
-    let filteredPeople = people.filter(function (person) {
-        if(person.parents[0] === id || person.parents[1] === id){
-            return true;
+    let endNum = people.length;
+    let filteredPeople = []
+    if (num < endNum) {
+        if(people[num].parents[0] === id || people[num].parents[1] === id){
+            filteredPeople.push(people[num])
         }
-        return false;
-    });
+        getDesendents(num + 1)
+    }
+    if (filteredPeople.length > 0){
     updateTable(filteredPeople);
+    }
 }
+
 
 
 function getFamily () {
