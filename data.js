@@ -311,8 +311,3 @@ function getPeople(array) {
 	}
 	console.log(array);
 }
-
-
-
-
-console.log(people.length);

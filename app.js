@@ -1,14 +1,39 @@
 'use strict';
-let row = document.getElementsByTagName('tr')
+let sortedPeople = [];
 
 function clearTable() { 
     document.getElementById('table-body').innerHTML= "";
 }
 
 function getColor (selectedcolor) {
-    let color = selectedcolor
+    let color = selectedcolor;
     searchByColor(color)
 }
+
+function getProfession (selectedPro) {
+    let profession = selectedPro;
+    searchByProfession(profession)
+}
+
+function searchByProfession(profession) { 
+    clearTable()
+    let filteredPeople = sortedPeople.filter(function (person) {
+        if(person.occupation === profession){
+            return true;
+        }
+        return false;
+    });
+    
+    // Rather than console logging, you need to append the filteredPeople to a table.
+    if(filteredPeople.length > 0){
+        getPeople(filteredPeople); 
+        sortedPeople = filteredPeople  
+    }else{
+        console.log('Sorry, looks like there is no one with that name.');
+    }
+}
+
+
 
 function searchByColor(color){
     clearTable()
@@ -22,6 +47,8 @@ function searchByColor(color){
     // Rather than console logging, you need to append the filteredPeople to a table.
     if(filteredPeople.length > 0){
         getPeople(filteredPeople);
+        sortedPeople = filteredPeople;
+        console.log(sortedPeople);   
     }else{
         console.log('Sorry, looks like there is no one with that name.');
     }
