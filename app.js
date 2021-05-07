@@ -5,16 +5,27 @@ function clearTable() {
     document.getElementById('table-body').innerHTML= "";
 }
 
-function getColor () {
-    let color = document.getElementById("brown-eye").value
-    return color
-}
-function searchSingle(){
-    let eyeColor = document.getElementById()['fname'].value;
-
+function getColor (selectedcolor) {
+    let color = selectedcolor
+    searchByColor(color)
 }
 
-
+function searchByColor(color){
+    clearTable()
+    let filteredPeople = people.filter(function (person) {
+        if(person.eyeColor === color){
+            return true;
+        }
+        return false;
+    });
+    
+    // Rather than console logging, you need to append the filteredPeople to a table.
+    if(filteredPeople.length > 0){
+        getPeople(filteredPeople);
+    }else{
+        console.log('Sorry, looks like there is no one with that name.');
+    }
+}
 
 
 function searchByName(){

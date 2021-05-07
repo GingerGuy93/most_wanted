@@ -29,13 +29,15 @@
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Eye Color
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <button class="dropdown-item" type="button">Black</button>
-        <button class="dropdown-item" type="button">Brown</button>
-        <button class="dropdown-item" type="button">Blue</button>
-        <button class="dropdown-item" type="button">Green</button>
-        <button class="dropdown-item" type="button">Hazel</button>
+      <form id="eye-color">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" onclick="getColor('black')" type="button">Black</button>
+          <button class="dropdown-item" onclick="getColor('brown')" type="button">Brown</button>
+          <button class="dropdown-item" onclick="getColor('blue')" type="button">Blue</button>
+          <button class="dropdown-item" onclick="getColor('green')" type="button">Green</button>
+          <button class="dropdown-item" onclick="getColor('hazel')" type="button">Hazel</button>
       </div>
+      </form>
     </div>
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
