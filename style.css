@@ -45,6 +45,50 @@ td {
     padding: 5px;
 }
 
+h3 { 
+    font-size: 1.3em;
+}
+
+.selection-container { 
+    display: flex;
+    justify-content: space-between;
+    min-height: 60vh;
+
+}
+
+.selection-group1 { 
+    text-align: center;
+    justify-content: center;
+    margin: 1em
+}
 
 
+.dropdown-group { 
+    display: flex;
+    flex-direction: column;
+}
 
+.dropdown {
+    display: inline-block;
+    padding: 1em;
+
+}
+
+.name-group { 
+    justify-content: center;
+    text-align: center;
+    margin: 1em 10em 1em 0;
+
+}
+
+.search-btn { 
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.family-btn { 
+    display: inline-block;
+    padding: 1em;
+}
