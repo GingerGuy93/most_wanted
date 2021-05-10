@@ -211,3 +211,11 @@ function changeUserPic(array) {
 		}
 	}
 }
+
+function deletePerson(index) { 
+    console.log(index, index + 1 );
+    people.splice(index, index + 1)
+    console.log(people);
+    clearTable();
+    updateTable(people);
+}
