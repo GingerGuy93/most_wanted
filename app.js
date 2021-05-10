@@ -19,9 +19,8 @@ function updateTable(array) {
     if(array.length > 0){
         getPeople(array); 
         sortedPeople = array  
-    }else{
-       alert('Sorry, looks like there is no one with that description.');
     }
+    
 }
 
 function getTrait (keyvalue, selection) {
@@ -105,6 +104,7 @@ function searchByName(){
         return false;
         });
     }
+
     updateTable(filteredPeople);
 }
 
@@ -122,6 +122,7 @@ function getDesendents (num) {
     updateTable(filteredPeople);
     }
 }
+
 
 
 
@@ -146,7 +147,7 @@ function getFamily () {
             
             return true;
         }
-    
+        
         return false;
     });
     updateTable(filteredPeople);
@@ -161,13 +162,13 @@ function getGallery(array) {
         num += 1
     }
 	let table = document.getElementById('gallery-body');
-
+    
 	for(let i = 0; i < array.length; i++) { 
-		let row = document.createElement('tr');
+        let row = document.createElement('tr');
 		let characteristics =  ["firstName", "lastName", "occupation", "image"];
-
+        
 		for (let j = 0; j < characteristics.length; j++){
-			let cell = document.createElement('td');
+            let cell = document.createElement('td');
 			cell.setAttribute('id', 'pics');
 			let attribute = characteristics[j]
             if (attribute == "image") {
@@ -176,7 +177,7 @@ function getGallery(array) {
                 row.appendChild(cell);
                 cell.appendChild(pic);
             }else {
-			    cell.innerHTML = array[i][attribute];
+                cell.innerHTML = array[i][attribute];
 			    row.appendChild(cell);
             }
             table.appendChild(row);
@@ -186,16 +187,16 @@ function getGallery(array) {
 
 function changeUserPic(array) {
     let picturePrompt = prompt("Enter HTML for new user picture");
-
+    
 	let image = document.getElementById('gallery-body');
-
+    
 	for(let i = 0; i < array.length; i++) { 
-		let row = document.createElement('tr');
+        let row = document.createElement('tr');
 		let characteristics =  ["firstName", "lastName", "occupation", "image"];
-
+        
         
 		for (let j = 0; j < characteristics.length; j++){
-			let cell = document.createElement('td');
+            let cell = document.createElement('td');
 			cell.setAttribute('id', 'pics');
 			let attribute = characteristics[j]
             if (attribute == "image") {
@@ -204,10 +205,37 @@ function changeUserPic(array) {
                 row.appendChild(cell);
                 cell.appendChild(pic);
             }else {
-			    cell.innerHTML = array[i][attribute];
+                cell.innerHTML = array[i][attribute];
 			    row.appendChild(cell);
             }
             image.appendChild(row);
 		}
 	}
+}
+
+
+function changeSpouse () {
+    clearTable();
+    for (let i = 0; i < people.length; i++) {
+    let fName = people[i].firstName;
+    let lName = people[i].lastName;
+    let spouse = people[i].currentSpouse;
+    console.log(spouse);
+    let filteredPeople = people.filter(function (person) {
+        if(spouse === person.id){
+            people[i].currentSpouse = person.firstName + " " + person.lastName;
+            return true;
+        
+        }
+    return false;
+    
+    });
+    
+}
+updateTable(people);
+}
+  
+function spouse(){
+    getPeople(people);
+    changeSpouse();
 }
