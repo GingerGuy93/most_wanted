@@ -14,6 +14,8 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    background-image: url("brian-mcgowan-vS3bTz1dZ9U-unsplash.jpeg");
+    background-size: cover;   
 }
 
 #tableContainer { 
