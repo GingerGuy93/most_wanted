@@ -236,3 +236,31 @@ function getGallery(array) {
 		}
 	}
 }
+
+function changeUserPic(array) {
+    let picturePrompt = prompt("Enter HTML for new user picture");
+
+	let image = document.getElementById('gallery-body');
+
+	for(let i = 0; i < array.length; i++) { 
+		let row = document.createElement('tr');
+		let characteristics =  ["firstName", "lastName", "occupation", "image"];
+
+        
+		for (let j = 0; j < characteristics.length; j++){
+			let cell = document.createElement('td');
+			cell.setAttribute('id', 'pics');
+			let attribute = characteristics[j]
+            if (attribute == "image") {
+                let pic = document.createElement('img')
+                pic.setAttribute('src', `${picturePrompt}`)
+                row.appendChild(cell);
+                cell.appendChild(pic);
+            }else {
+			    cell.innerHTML = array[i][attribute];
+			    row.appendChild(cell);
+            }
+            image.appendChild(row);
+		}
+	}
+}
