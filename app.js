@@ -1,5 +1,6 @@
 'use strict';
 let sortedPeople = [];
+let images = [];
 
 function clearTable() { 
     document.getElementById('table-body').innerHTML= "";
@@ -202,4 +203,36 @@ function getFamily () {
         return false;
     });
     updateTable(filteredPeople);
+}
+
+
+function getGallery(array) {
+    let num = 1; 
+    for(let x = 0; x < people.length; x++) {     
+        console.log(num);
+        people[x].image = `images/${num}.jpeg`
+        num += 1
+    }
+	let table = document.getElementById('gallery-body');
+
+	for(let i = 0; i < array.length; i++) { 
+		let row = document.createElement('tr');
+		let characteristics =  ["firstName", "lastName", "occupation", "image"];
+
+		for (let j = 0; j < characteristics.length; j++){
+			let cell = document.createElement('td');
+			cell.setAttribute('id', 'pics');
+			let attribute = characteristics[j]
+            if (attribute == "image") {
+                let pic = document.createElement('img')
+                pic.setAttribute('src', `${array[i][attribute]}`)
+                row.appendChild(cell);
+                cell.appendChild(pic);
+            }else {
+			    cell.innerHTML = array[i][attribute];
+			    row.appendChild(cell);
+            }
+            table.appendChild(row);
+		}
+	}
 }

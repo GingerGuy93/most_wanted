@@ -13,7 +13,8 @@ const people = [
 		"eyeColor": "brown",
 		"occupation": "programmer",
 		"parents": [],
-		"currentSpouse": 401222887
+		"currentSpouse": 401222887,
+		"image": 'images/1.jpeg'
 	},
 	{
 		"id": 401222887,

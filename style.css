@@ -14,8 +14,10 @@ body {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    /* height: 100vh; */
     background-image: url("brian-mcgowan-vS3bTz1dZ9U-unsplash.jpeg");
     background-size: cover;   
+    background-repeat: no-repeat;
 }
 
 #tableContainer { 
@@ -49,10 +51,14 @@ h3 {
     font-size: 1.3em;
 }
 
+img { 
+    max-height: 15vh;
+}
+
 .selection-container { 
     display: flex;
     justify-content: space-between;
-    min-height: 60vh;
+    min-height: 30vh;
 
 }
 
@@ -92,3 +98,11 @@ h3 {
     display: inline-block;
     padding: 1em;
 }
+.img-button {
+    margin: 2vh;
+}
+
+#pics {
+    max-height: 5vh;
+}
+
