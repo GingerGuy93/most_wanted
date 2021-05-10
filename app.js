@@ -11,9 +11,8 @@ function clearSearch() {
 }
 
 function getGender(){
-    let gender = document.forms['genderButton']['gender'].value;
-    clearSearch();
-    searchByGender(gender);
+    let selectedGender = document.forms['genderButton']['gender'].value;
+    searchByTrait('gender', selectedGender);
 }
 
 function updateTable(array) { 
@@ -25,35 +24,31 @@ function updateTable(array) {
     }
 }
 
-function getColor (selectedcolor) {
-    let color = selectedcolor;
-    searchByColor(color);
+function getTrait (keyvalue, selection) {
+    let key = keyvalue
+    let value = selection;
+    searchByTrait(key, value);
 }
 
-function getProfession (selectedPro) {
-    let profession = selectedPro;
-    searchByProfession(profession);
+function getHeight (minHeight, maxHeight) {
+    let minCompare = minHeight;
+    let maxCompare = maxHeight;
+    searchByHeight(minCompare, maxCompare);
 }
 
-function getHeight (selectedHeight) {
-    let height = selectedHeighargumarrentst;
-    searchByHeight(height);
-}
-
-
-function searchByProfession(profession) { 
+function searchByTrait(keyvalue, value) { 
     clearTable();
     let filteredPeople = [];
     if(sortedPeople.length === 0) {
         filteredPeople = people.filter(function (person) {
-            if(person.occupation === profession){
+            if(person[keyvalue] === value){
                 return true;
             }
             return false;
         });  
     } else {
     filteredPeople = sortedPeople.filter(function (person) {
-        if(person.occupation === profession){
+        if(person[keyvalue] === value){
             return true;
         }
         return false;
@@ -63,34 +58,7 @@ function searchByProfession(profession) {
     updateTable(filteredPeople);
 }
 
-function searchByGender(gender) { 
-    clearTable();
-    let filteredPeople = [];
-    if(sortedPeople.length === 0) {
-        filteredPeople = people.filter(function (person) {
-            if(person.gender === gender){
-                return true;
-            }
-            return false;
-        });  
-    } else {
-        filteredPeople = sortedPeople.filter(function (person) {
-        if(person.gender === gender){
-            return true;
-        }
-        return false;
-        });
-    }
-    
-    updateTable(filteredPeople)
-}
 
-
-function getHeight (minHeight, maxHeight) {
-    let minCompare = minHeight;
-    let maxCompare = maxHeight;
-    searchByHeight(minCompare, maxCompare);
-}
 
 function searchByHeight(min, max){
     clearTable()
@@ -111,27 +79,6 @@ function searchByHeight(min, max){
             });
     }
     updateTable(filteredPeople);
-}
-
-function searchByColor(color){
-    clearTable();
-    let filteredPeople = [];
-    if(sortedPeople.length === 0) {
-        filteredPeople = people.filter(function (person) {
-            if(person.eyeColor === color){
-                return true;
-            }
-            return false;
-        });  
-    } else {
-    filteredPeople = sortedPeople.filter(function (person) {
-        if(person.eyeColor === color){
-            return true;
-        }
-        return false;
-        });
-    }
-    updateTable(filteredPeople)
 }
 
 
