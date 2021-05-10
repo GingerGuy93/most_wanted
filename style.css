@@ -106,3 +106,7 @@ img {
     max-height: 5vh;
 }
 
+#delete-btn { 
+    margin: 2px;
+    box-shadow: black 0 1px 1px 1px;
+}

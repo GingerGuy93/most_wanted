@@ -307,6 +307,12 @@ function getPeople(array) {
 			cell.innerHTML = array[i][attribute];
 			row.appendChild(cell);
 		}
+		let button = document.createElement("button")
+		button.setAttribute('id' , "delete-btn");
+		button.setAttribute("onclick", `deletePerson(${i})`);
+		button.setAttribute('class', 'btn btn-danger');
+		button.innerHTML = "Delete";
+		row.appendChild(button);
 		table.appendChild(row);
 	}
 	console.log(array);
