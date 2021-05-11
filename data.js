@@ -307,11 +307,17 @@ function getPeople(array) {
 			cell.innerHTML = array[i][attribute];
 			row.appendChild(cell);
 		}
+		let editButton = document.createElement("button")
+		editButton.setAttribute('id' , "edit-btn");
+		editButton.setAttribute("onclick", `editPerson(${i})`);
+		editButton.setAttribute('class', 'btn btn-info');
+		editButton.innerHTML = "edit";
 		let button = document.createElement("button")
 		button.setAttribute('id' , "delete-btn");
 		button.setAttribute("onclick", `deletePerson(${i})`);
 		button.setAttribute('class', 'btn btn-danger');
 		button.innerHTML = "Delete";
+		row.appendChild(editButton);
 		row.appendChild(button);
 		table.appendChild(row);
 	}

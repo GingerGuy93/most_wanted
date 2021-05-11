@@ -270,3 +270,33 @@ function changeParent () {
 }
 updateTable(people);
 }
+
+function editPerson(index) { 
+    let newId = prompt("Enter new ID:")
+    let newFname = prompt("Enter new first name:")
+    let newLname = prompt("Enter new last name:")
+    let newGender = prompt("Enter new gender:")
+    let newDOB = prompt("Enter new date of birth:")
+    let newheight = prompt("Enter new height in inches:")
+    let newWeight = prompt("Enter new weigt:")
+    let newEyeColor = prompt("Enter new eye color:")
+    let newOccupation = prompt("Enter new occupation:")
+    let newparents = prompt("Enter new parents separated by comma:").split(',')
+    let newcurrentSpouse = prompt("Enter new spouse:")
+
+    people[index].id = newId;
+    people[index].firstName = newFname;
+    people[index].lastName = newLname;
+    people[index].gender = newGender;
+    people[index].dob = newDOB;
+    people[index].height = newheight;
+    people[index].weight = newWeight;
+    people[index].eyeColor = newEyeColor;
+    people[index].occupation = newOccupation;
+    people[index].parents = newparents;
+    people[index].currentSpouse = newcurrentSpouse;
+    console.log(people[index])
+    clearTable();
+    updateTable(people);
+    
+}
