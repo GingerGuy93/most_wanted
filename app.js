@@ -238,12 +238,35 @@ updateTable(people);
 function spouse(){
     getPeople(people);
     changeSpouse();
+    changeParent();
 }
 
-    function deletePerson(index) { 
+function deletePerson(index) { 
     console.log(index, index + 1 );
     people.splice(index, index + 1)
     console.log(people);
     clearTable();
     updateTable(people);
+}
+
+function changeParent () {
+    clearTable();
+    for (let i = 0; i < people.length; i++) {
+    let fName = people[i].firstName;
+    let lName = people[i].lastName;
+    let parent1 = people[i].parents[0];
+    let parent2 = people[i].parents[1];
+    console.log(spouse);
+    let filteredPeople = people.filter(function (person) {
+        if(parent1 === person.id){
+            people[i].parents[0] = person.firstName + " " + person.lastName;
+        }
+        else if (parent2 === person.id) {
+            people[i].parents[1] = person.firstName + " " + person.lastName;
+            return true;
+        }
+    return false;
+    });
+}
+updateTable(people);
 }
