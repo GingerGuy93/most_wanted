@@ -113,6 +113,7 @@ function getDesendents (selected) {
     let id = selected.id;
     let filteredPeople = people.filter(function (person){
         if(person.parents[0] === id || person.parents[1] === id){
+            person.relation = 'child';
             getDesendents(person);
             return true
           }
@@ -142,9 +143,7 @@ function getFamily () {
             }
             else if (person.parents.length == 0 && person.id !== sortedPeople[0].currentSpouse){
                 person.relation = 'parent';
-            } else {
-                person.relation = 'in-law';
-            }
+            } 
             
             return true;
         }
