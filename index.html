@@ -11,7 +11,7 @@
   <body>
     <div class="instructions">
       <h3>Insructions</h3>
-      <p>Hit the Show people button too show everone in the database..<br> Hit the clear search button to start the search over <br> Enter one or more of the cirteria below as you enter the list will get smaller if you make a mistake you will have to hit clear search to start over <br> In Order for the Get Desendences, Get Family or Add Picture to work there can only be one person selected in the table. </p>
+      <p>Hit the Show people button to show everone in the database.<br> Hit the clear search button to start the search over. <br> Enter one or more of the cirteria below as you enter the list will get smaller if you make a mistake you will have to hit clear search to start over <br> In Order for the Get Desendences, Get Family or Add Picture to work there can only be one person selected in the table <br> See parents name will clear will reload the whole database showing the parents names instead of id numbers - get Desendences is disabled while this is displayed. </p>
     </div>
     <div class="selection-container">
 
@@ -103,13 +103,10 @@
 
     <div class="search-btn">
       <div class="family-btn">
-        <input type="button" class="btn btn-success" onclick="getDesendents(0)" value="Get Desendences">
+        <input type="button" class="btn btn-success" onclick="getDesendents(sortedPeople[0])" value="Get Desendences">
       </div>
       <div class="family-btn">
         <input type="button" class="btn btn-success" onclick="getFamily()" value="Get Family">
-      </div>
-      <div class="family-btn">
-        <input type="button" class="btn btn-success" onclick="changeParent()" value="See parents Name">
       </div>
     </div>
     </div>
@@ -142,10 +139,14 @@
         <input type="button" class="btn btn-success" value="Add Picture" onclick="changeUserPic(sortedPeople)">
       </div>
     </div>
+    <div class="family-btn">
+      <input type="button" class="btn btn-success" onclick="changeParent()" value="See parents Name">
+    </div>
     
     <div class="img-button">
       <input type="button" class="btn btn-success" value="View Gallery" onclick="getGallery(people)">
     </div>
+  
     <div id="image-gallery">
       <table id="image-table">
         <thead>

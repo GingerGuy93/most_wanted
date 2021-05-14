@@ -108,16 +108,18 @@ function searchByName(){
     updateTable(filteredPeople);
 }
 
-function getDesendents (num) {
-    let id = sortedPeople[0].id;
-    let endNum = people.length;
-    let filteredPeople = []
-    if (num < endNum) {
-        if(people[num].parents[0] === id || people[num].parents[1] === id){
-            filteredPeople.push(people[num]);
+function getDesendents (selected) {
+    clearTable()
+    let id = selected.id;
+    let filteredPeople = people.filter(function (person){
+        if(person.parents[0] === id || person.parents[1] === id){
+            getDesendents(person);
+            return true
           }
-        getDesendents(num + 1)
-    }
+        return false
+    });
+
+    
     if (filteredPeople.length > 0){
     updateTable(filteredPeople);
     }
