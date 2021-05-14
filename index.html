@@ -9,22 +9,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
   <body>
+    <div class="instructions">
+      <h3>Insructions</h3>
+      <p>Hit the Show people button too show everone in the database..<br> Hit the clear search button to start the search over <br> Enter one or more of the cirteria below as you enter the list will get smaller if you make a mistake you will have to hit clear search to start over <br> In Order for the Get Desendences, Get Family or Add Picture to work there can only be one person selected in the table. </p>
+    </div>
     <div class="selection-container">
 
       <div class="selection-group1">
 
         <div>
-          <h3>Click below to see everyone in the database</h3>
+          
           <input type="button" onclick="spouse()" value="show people">
         </div>
 
-        <div>
-          <h3>Click below to clear search parameters</h3>
+        <div class='clear-search'>
+        
           <input type="button" onclick='clearSearch()' value="ClearSearch">
         </div>
 
         <div>
-          <h3>Select a single or multiple options below to find the person you  need. If you make a mistake you will have to hit the clear search to start over. </h3>
+      
         </div>
 
         <div> 
@@ -95,10 +99,8 @@
         </form> 
 
       </div>
-
-
     </div>
-    <p>For Desendence and get family there will have to be only one person select I suggest using the search by name to select a single person.</p>
+
     <div class="search-btn">
       <div class="family-btn">
         <input type="button" class="btn btn-success" onclick="getDesendents(0)" value="Get Desendences">
