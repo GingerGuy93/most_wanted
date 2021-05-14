@@ -107,6 +107,16 @@ img {
 }
 
 #delete-btn { 
+    display: inline;
     margin: 2px;
     box-shadow: black 0 1px 1px 1px;
+    height: 2em;
+    width: 4em;
+}
+
+#edit-btn { 
+    display: inline;
+    box-shadow: black 0 1px 1px 1px;
+    height: 2em;
+    width: 4em;
 }

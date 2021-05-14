@@ -114,15 +114,14 @@ function getDesendents (num) {
     let filteredPeople = []
     if (num < endNum) {
         if(people[num].parents[0] === id || people[num].parents[1] === id){
-            filteredPeople.push(people[num])
-        }
+            filteredPeople.push(people[num]);
+          }
         getDesendents(num + 1)
     }
     if (filteredPeople.length > 0){
     updateTable(filteredPeople);
     }
 }
-
 
 
 
@@ -238,7 +237,6 @@ updateTable(people);
 function spouse(){
     getPeople(people);
     changeSpouse();
-    changeParent();
 }
 
 function deletePerson(index) { 
